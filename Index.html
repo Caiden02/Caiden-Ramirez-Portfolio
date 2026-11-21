@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-  <!-- External stylesheet (replaces the old <style> block) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +28,7 @@
     <section class="about" id="about">
       <h2>About Me</h2>
       <div class="about-photo">
-        <!-- Replace profile.jpg with your own photo (same folder as this file) -->
+    
         <img src="Images/profile.jpg" alt="Portrait of Caiden Limoso Ramirez" width="240" height="280">
         <div class="about-text">
           <p>
@@ -150,7 +149,6 @@
   </footer>
 
   <script>
-    // Sets up every .carousel on the page, so each one works on its own
     document.querySelectorAll('.carousel').forEach(function (carousel) {
       var track = carousel.querySelector('.carousel-track');
       var dots = carousel.querySelectorAll('.carousel-dot');
@@ -158,7 +156,7 @@
       var index = 0;
 
       function showSlide(i) {
-        index = (i + count) % count;                       // loops at both ends
+        index = (i + count) % count;                     
         track.style.transform = 'translateX(-' + index * 100 + '%)';
         dots.forEach(function (dot, n) {
           dot.classList.toggle('active', n === index);
@@ -172,7 +170,6 @@
         dot.addEventListener('click', function () { showSlide(n); });
       });
 
-      // Left/right arrow keys work while focus is inside this carousel
       carousel.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') showSlide(index - 1);
         if (e.key === 'ArrowRight') showSlide(index + 1);
