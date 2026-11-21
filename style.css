@@ -159,7 +159,7 @@ nav a:hover {
   width: 100%;
   height: var(--slide-height);
   object-fit: contain;         /* shows the whole image, no cropping */
-  background-color: #D8D3C4;   /* fills the sides, and shows if a file is missing */
+  background-color: #1C1C1B;   /* fills the sides, and shows if a file is missing */
 }
 
 .slide figcaption {
