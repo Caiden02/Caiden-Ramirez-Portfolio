@@ -132,31 +132,98 @@ nav a:hover {
 }
 
 /* ---------- 6. Passion Project (Flexbox: image gallery) ---------- */
-.project-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
+.carousel {
+  --slide-height: 28rem;       /* image area height; change to make previews bigger or smaller */
+  max-width: 36rem;
+  margin: 1.25rem auto 0;
 }
 
-.project-images figure {
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;            /* hides the slides that are off-screen */
+  border-radius: 0.375rem;
+}
+
+.carousel-track {
+  display: flex;               /* lines all slides up in a row */
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  flex: 0 0 100%;              /* each slide fills the full width */
   margin: 0;
 }
 
-.project-images img {
+.slide img {
   display: block;
-  width: 11.25rem;
-  height: 15rem;
-  object-fit: cover;
-  border-radius: 0.375rem;
-  background-color: #D8D3C4;   /* shows if an image file is missing */
+  width: 100%;
+  height: var(--slide-height);
+  object-fit: contain;         /* shows the whole image, no cropping */
+  background-color: #D8D3C4;   /* fills the sides, and shows if a file is missing */
 }
 
-.project-images figcaption {
-  font-size: 0.8125rem;
+.slide figcaption {
+  font-size: 0.875rem;
   color: #6B6862;
   text-align: center;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+/* Prev / next buttons, centered on the image area */
+.carousel-btn {
+  position: absolute;
+  top: calc(var(--slide-height) / 2);
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #242221;
+  color: #F5F3EB;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.carousel-btn.prev { left: 0.75rem; }
+.carousel-btn.next { right: 0.75rem; }
+
+.carousel-btn:hover {
+  background-color: #6B6862;
+}
+
+/* Dot indicators */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  padding: 0;
+  border: 1px solid #242221;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background-color: #242221;
+}
+
+.carousel-btn:focus-visible,
+.carousel-dot:focus-visible {
+  outline: 3px solid #0056b3;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
 }
 
 /* ---------- 7. Contacts ---------- */
@@ -228,15 +295,7 @@ a:focus-visible {
     aspect-ratio: 6 / 7;
   }
 
-  .project-images {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-images img {
-    width: 100%;
-    max-width: 15rem;
-    height: auto;
-    aspect-ratio: 3 / 4;
+  .carousel {
+    --slide-height: 22rem;
   }
 }
