@@ -130,37 +130,34 @@ nav a:hover {
 .things-content {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;   
+  gap: 2.5rem;
 }
 
 .things-content ul {
-  flex: 1;
-}
-
-.things li {
-  margin-bottom: 0.25rem;
+  flex: 0 0 auto;            
 }
 
 /* ---------- 6. Passion Project (Flexbox: image gallery) ---------- */
 .carousel {
-  --slide-height: 28rem;       /* image area height; change to make previews bigger or smaller */
+  --slide-height: 28rem;      
   max-width: 36rem;
   margin: 1.25rem auto 0;
 }
 
 .carousel-viewport {
   position: relative;
-  overflow: hidden;            /* hides the slides that are off-screen */
+  overflow: hidden;          
   border-radius: 0.375rem;
 }
 
 .carousel-track {
-  display: flex;               /* lines all slides up in a row */
+  display: flex;              
   transition: transform 0.4s ease;
 }
 
 .slide {
-  flex: 0 0 100%;              /* each slide fills the full width */
+  flex: 0 0 100%;            
   margin: 0;
 }
 
@@ -168,8 +165,8 @@ nav a:hover {
   display: block;
   width: 100%;
   height: var(--slide-height);
-  object-fit: contain;         /* shows the whole image, no cropping */
-  background-color: #1C1C1B;   /* fills the sides, and shows if a file is missing */
+  object-fit: contain;         
+  background-color: #1C1C1B;   
 }
 
 .slide figcaption {
