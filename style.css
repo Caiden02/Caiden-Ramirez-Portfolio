@@ -127,6 +127,16 @@ nav a:hover {
 }
 
 /* ---------- 5. Things I Love ---------- */
+.things-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.things-content ul {
+  flex: 1;
+}
+
 .things li {
   margin-bottom: 0.25rem;
 }
@@ -226,6 +236,28 @@ nav a:hover {
   }
 }
 
+/* Small carousel variant (Things I Love) */
+.carousel-small {
+  --slide-height: 13rem;
+  width: 14rem;
+  max-width: none;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.carousel-small .carousel-btn {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.75rem;
+}
+
+.carousel-small .carousel-btn.prev { left: 0.5rem; }
+.carousel-small .carousel-btn.next { right: 0.5rem; }
+
+.carousel-small .slide figcaption {
+  font-size: 0.8125rem;
+}
+
 /* ---------- 7. Contacts ---------- */
 .contacts p {
   margin-bottom: 0.25rem;
@@ -297,5 +329,17 @@ a:focus-visible {
 
   .carousel {
     --slide-height: 22rem;
+  }
+
+  .things-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .carousel-small {
+    --slide-height: 16rem;
+    width: 100%;
+    max-width: 18rem;
+    align-self: center;
   }
 }
