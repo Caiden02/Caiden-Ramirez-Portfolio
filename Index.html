@@ -45,9 +45,47 @@
         <li>Arts &amp; Design</li>
         <li>Fashion</li>
         <li>Coffee</li>
-        <li>Dogs</li>
+        <li>Travelling</li>
         <li>Family</li>
       </ul>
+      <div class="carousel carousel-small" role="region" aria-roledescription="carousel" aria-label="Things I love">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <figure class="slide" aria-label="1 of 5">
+              <img src="Images/art.jpg" alt="painting commissioned works">
+              <figcaption>Arts &amp; Design</figcaption>
+            </figure>
+            <figure class="slide" aria-label="2 of 5">
+              <img src="Images/fashion.jpg" alt="a man that knows how to dress">
+              <figcaption>Fashion</figcaption>
+            </figure>
+            <figure class="slide" aria-label="3 of 5">
+              <img src="Images/coffee.jpg" alt="part-time barista">
+              <figcaption>Coffee</figcaption>
+            </figure>
+            <figure class="slide" aria-label="4 of 5">
+              <img src="Images/travel.jpg" alt="always on an adventure">
+              <figcaption>Travelling</figcaption>
+            </figure>
+            <figure class="slide" aria-label="5 of 5">
+              <img src="Images/family.jpg" alt="family">
+              <figcaption>Family</figcaption>
+            </figure>
+          </div>
+ 
+          <button type="button" class="carousel-btn prev" aria-label="Previous image">&#10094;</button>
+          <button type="button" class="carousel-btn next" aria-label="Next image">&#10095;</button>
+          </div>
+
+          <div class="carousel-dots">
+            <button type="button" class="carousel-dot active" aria-label="Show image 1" aria-current="true"></button>
+            <button type="button" class="carousel-dot" aria-label="Show image 2" aria-current="false"></button>
+            <button type="button" class="carousel-dot" aria-label="Show image 3" aria-current="false"></button>
+            <button type="button" class="carousel-dot" aria-label="Show image 4" aria-current="false"></button>
+            <button type="button" class="carousel-dot" aria-label="Show image 5" aria-current="false"></button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="passion" id="passion">
@@ -58,7 +96,7 @@
 
       <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Editorial work">
         <div class="carousel-viewport">
-          <div class="carousel-track" id="track">
+          <div class="carousel-track" 
             <figure class="slide" aria-label="1 of 5">
               <img src="Images/duo_fit.jpg" alt="Editorial shoot of two coordinated corporate chic looks">
               <figcaption>Duo Fit</figcaption>
@@ -111,9 +149,9 @@
   </footer>
 
   <script>
-    (function () {
-      var carousel = document.querySelector('.carousel');
-      var track = document.getElementById('track');
+    // Sets up every .carousel on the page, so each one works on its own
+    document.querySelectorAll('.carousel').forEach(function (carousel) {
+      var track = carousel.querySelector('.carousel-track');
       var dots = carousel.querySelectorAll('.carousel-dot');
       var count = track.children.length;
       var index = 0;
@@ -133,13 +171,12 @@
         dot.addEventListener('click', function () { showSlide(n); });
       });
 
-      // Left/right arrow keys work while focus is inside the carousel
+      // Left/right arrow keys work while focus is inside this carousel
       carousel.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') showSlide(index - 1);
         if (e.key === 'ArrowRight') showSlide(index + 1);
       });
-    })();
+    });
   </script>
-
 </body>
 </html>
